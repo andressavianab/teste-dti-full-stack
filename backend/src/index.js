@@ -5,13 +5,13 @@ require('dotenv').config()
 
 const port = process.env.PORT;
 
-const { authenticateDb } = require("./db/connection");
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+const { authenticateDb } = require("./db/connection");
+const { Petshop } = require("./models/PetshopModel");
+
 authenticateDb();
-const Petshop = require("./models/PetshoptModel");
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
