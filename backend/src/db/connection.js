@@ -15,4 +15,4 @@ const authenticateDb = async () => {
   }
 };
 
-module.exports = { authenticateDb };
+module.exports = { authenticateDb, connection };
