@@ -5,8 +5,12 @@ require('dotenv').config()
 
 const port = process.env.PORT;
 
+const { authenticateDb } = require("./db/connection");
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+authenticateDb();
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
