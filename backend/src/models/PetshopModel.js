@@ -105,4 +105,4 @@ connection
     console.error("Database synchronization error:", error);
   });
 
-module.exports = { Petshop };
+module.exports =  Petshop;

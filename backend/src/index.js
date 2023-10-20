@@ -14,10 +14,8 @@ const { authenticateDb } = require("./db/connection");
 const { Petshop } = require("./models/PetshopModel");
 
 authenticateDb();
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+const petshopController = require("./controllers/PetshopController");
+app.use("/", petshopController);
 
 app.post("/calc", async (req, res) => {
   const date = req.body.date;
