@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 require("dotenv").config();
-var cors = require('cors');
+var cors = require("cors");
 app.use(cors());
 
 const port = process.env.PORT;
@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const { authenticateDb } = require("./db/connection");
-const { Petshop } = require("./models/PetshopModel");
+const Petshop = require("./models/PetshopModel");
 
 authenticateDb();
 const petshopController = require("./controllers/PetshopController");
@@ -23,7 +23,7 @@ app.post("/calc", async (req, res) => {
   const quantityBigDog = parseInt(req.body.quantityBigDog);
 
   try {
-    if (!date || quantitySmallDog <= 0 && quantityBigDog <= 0) {
+    if (!date || (quantitySmallDog <= 0 && quantityBigDog <= 0)) {
       return res
         .status(400)
         .send({ error: "Por favor, preencha todos os campos!" });
@@ -75,6 +75,7 @@ app.post("/calc", async (req, res) => {
       distance: bestPetshop.location,
     });
   } catch (error) {
+    console.log(error);
     return res.status(500).send({ error: "Internal server error." });
   }
 });

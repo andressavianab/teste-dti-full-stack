@@ -56,7 +56,6 @@ export const Form = () => {
         setErrorMessage(error.response.data.error);
         setErrorMessageVisible(true);
       });
-      console.log(date, quantityBigDog, quantitySmallDog)
     setDate("");
     setQuantitySmallDog("0");
     setQuantityBigDog("0");
