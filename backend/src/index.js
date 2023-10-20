@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 require("dotenv").config();
+var cors = require('cors');
+app.use(cors());
 
 const port = process.env.PORT;
 
@@ -23,7 +25,7 @@ app.post("/calc", async (req, res) => {
   const quantityBigDog = parseInt(req.body.quantityBigDog);
 
   try {
-    if (!date || !quantitySmallDog || !quantityBigDog) {
+    if (!date || quantitySmallDog <= 0 && quantityBigDog <= 0) {
       return res
         .status(400)
         .send({ error: "Por favor, preencha todos os campos!" });
