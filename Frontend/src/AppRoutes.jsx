@@ -6,6 +6,15 @@ export const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
+      <Route
+          path="/"
+          element={
+            <Navigate
+              replace
+              to={"/pet-app/calculadora-de-melhor-preco-petshop"}
+            />
+          }
+        />
         <Route path="/pet-app" element={<DefaultLayout />}>
           <Route
             path="/pet-app/calculadora-de-melhor-preco-petshop"

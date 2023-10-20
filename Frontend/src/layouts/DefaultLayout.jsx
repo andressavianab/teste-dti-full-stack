@@ -4,8 +4,8 @@ import { Header } from "../components/Header";
 export const DefaultLayout = () => {
   return (
     <>
-      <Header />
-      <main className="max-w-5xl m-auto h-screen flex my-32 justify-center gap-5 font-Poppins px-4">
+      <main className="max-w-6xl m-auto h-screen flex flex-col px-4">
+        <Header />
         <Outlet />
       </main>
     </>
